@@ -24,5 +24,3 @@ function main() {
     });
 }
 main();
-//   HvOWxeaVV19upvUR
-// car_store_user
