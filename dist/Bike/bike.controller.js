@@ -14,8 +14,8 @@ const bike_services_1 = require("./bike.services");
 const createbike = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const bikeInfo = req.body.bike;
-        bikeInfo.createdAt = new Date();
-        bikeInfo.updatedAt = new Date();
+        // bikeInfo.createdAt = new Date();
+        // bikeInfo.updatedAt = new Date();
         const result = yield bike_services_1.bikeServices.createBikeInDb(bikeInfo);
         res.status(201).json({
             message: 'Bike created successfully',
@@ -54,7 +54,7 @@ const getSignleBike = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     try {
         const query = req.params.productId;
         const result = yield bike_services_1.bikeServices.getSingleBikeFromDb(query);
-        res.status(201).json({
+        res.status(200).json({
             message: 'Bikes retrieved successfully',
             status: true,
             data: result,
@@ -65,7 +65,7 @@ const getSignleBike = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.send({
             message: 'Bike retrieval failed',
             success: false,
-            data: error,
+            error: error.message,
         });
     }
 });

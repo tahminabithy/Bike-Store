@@ -4,8 +4,8 @@ import { bikeServices } from './bike.services';
 const createbike = async (req: Request, res: Response) => {
   try {
     const bikeInfo = req.body.bike;
-    bikeInfo.createdAt = new Date();
-    bikeInfo.updatedAt = new Date();
+    // bikeInfo.createdAt = new Date();
+    // bikeInfo.updatedAt = new Date();
     const result = await bikeServices.createBikeInDb(bikeInfo);
     res.status(201).json({
       message: 'Bike created successfully',
@@ -42,17 +42,17 @@ const getSignleBike = async (req: Request, res: Response) => {
   try {
     const query = req.params.productId;
     const result = await bikeServices.getSingleBikeFromDb(query);
-    res.status(201).json({
+    res.status(200).json({
       message: 'Bikes retrieved successfully',
       status: true,
       data: result,
     });
-  } catch (error) {
+  } catch (error: any) {
     console.log(error);
     res.send({
       message: 'Bike retrieval failed',
       success: false,
-      data: error,
+      error: error.message,
     });
   }
 };

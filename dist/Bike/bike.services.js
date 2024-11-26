@@ -26,6 +26,9 @@ const getBikefromDb = () => __awaiter(void 0, void 0, void 0, function* () {
 });
 const getSingleBikeFromDb = (productId) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield bike_model_1.bikeModel.findOne({ _id: productId });
+    if (!result) {
+        throw new Error('Product not found');
+    }
     return result;
 });
 const updateBikeInDb = (productId, bikeInfo) => __awaiter(void 0, void 0, void 0, function* () {

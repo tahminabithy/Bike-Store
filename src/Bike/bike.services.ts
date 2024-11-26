@@ -13,6 +13,9 @@ const getBikefromDb = async () => {
 };
 const getSingleBikeFromDb = async (productId: string) => {
   const result = await bikeModel.findOne({ _id: productId });
+  if (!result) {
+    throw new Error('Product not found');
+  }
   return result;
 };
 const updateBikeInDb = async (productId: string, bikeInfo: object) => {

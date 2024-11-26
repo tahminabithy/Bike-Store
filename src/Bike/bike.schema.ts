@@ -72,5 +72,3 @@ export const orderSchema = new Schema<tOrder>(
   },
   { timestamps: true },
 );
-
-
