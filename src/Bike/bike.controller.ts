@@ -67,12 +67,12 @@ const updateBike = async (req: Request, res: Response) => {
       status: true,
       data: result,
     });
-  } catch (error) {
+  } catch (error: any) {
     console.log(error);
     res.send({
       message: 'Bike update failed',
       success: false,
-      data: error,
+      data: error.message,
     });
   }
 };
@@ -86,12 +86,12 @@ const deleteBike = async (req: Request, res: Response) => {
       status: true,
       data: {},
     });
-  } catch (error) {
+  } catch (error: any) {
     console.log(error);
     res.send({
       message: 'Bike delete failed!',
       success: false,
-      data: error,
+      data: error.message,
     });
   }
 };

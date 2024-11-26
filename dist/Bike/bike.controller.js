@@ -86,7 +86,7 @@ const updateBike = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         res.send({
             message: 'Bike update failed',
             success: false,
-            data: error,
+            data: error.message,
         });
     }
 });
@@ -106,7 +106,7 @@ const deleteBike = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         res.send({
             message: 'Bike delete failed!',
             success: false,
-            data: error,
+            data: error.message,
         });
     }
 });
