@@ -31,7 +31,7 @@ const updateBikeInDb = async (productId: string, bikeInfo: object) => {
 };
 const deleteBikeFromDb = async (productId: string) => {
   const result = await bikeModel.deleteOne({ _id: productId });
-  if (!result) {
+  if (result.deletedCount === 0) {
     throw new Error('product is not found to delete');
   }
   return result;

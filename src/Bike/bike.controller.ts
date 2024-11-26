@@ -17,7 +17,7 @@ const createbike = async (req: Request, res: Response) => {
     res.send({
       message: 'bike creation failed',
       success: false,
-      data: error,
+      error: error,
     });
   }
 };
@@ -34,7 +34,7 @@ const getAllBike = async (req: Request, res: Response) => {
     res.send({
       message: 'Bike retrieval failed',
       success: false,
-      data: error,
+      error: error,
     });
   }
 };
@@ -72,7 +72,7 @@ const updateBike = async (req: Request, res: Response) => {
     res.send({
       message: 'Bike update failed',
       success: false,
-      data: error.message,
+      error: error.message,
     });
   }
 };
@@ -87,11 +87,10 @@ const deleteBike = async (req: Request, res: Response) => {
       data: {},
     });
   } catch (error: any) {
-    console.log(error);
     res.send({
-      message: 'Bike delete failed!',
+      message: 'Bike delete failed !',
       success: false,
-      data: error.message,
+      error: error.message,
     });
   }
 };
@@ -113,7 +112,7 @@ const createOrder = async (req: Request, res: Response) => {
     res.send({
       message: 'Order failed!',
       success: false,
-      data: error.message,
+      error: error.message,
     });
   }
 };
@@ -126,12 +125,12 @@ const totalRevenue = async (req: Request, res: Response) => {
       status: true,
       data: result,
     });
-  } catch (error) {
+  } catch (error:any) {
     console.log(error);
     res.send({
       message: 'calculation failed!',
       success: false,
-      data: error,
+      error: error.message,
     });
   }
 };

@@ -34,14 +34,14 @@ const getSingleBikeFromDb = (productId) => __awaiter(void 0, void 0, void 0, fun
 const updateBikeInDb = (productId, bikeInfo) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield bike_model_1.bikeModel.findByIdAndUpdate(productId, { $set: bikeInfo }, { new: true, runValidators: true }); // new: true returns the updated document and runValidators Ensures that all updated fields are validated based on the schema rules.
     if (!result) {
-        throw new Error("product is not found to update"); // make sure product is not null
+        throw new Error('product is not found to update'); // make sure product is not null
     }
     return result;
 });
 const deleteBikeFromDb = (productId) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield bike_model_1.bikeModel.deleteOne({ _id: productId });
-    if (!result) {
-        throw new Error("product is not found to delete");
+    if (result.deletedCount === 0) {
+        throw new Error('product is not found to delete');
     }
     return result;
 });

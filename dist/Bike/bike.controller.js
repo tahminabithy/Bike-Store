@@ -28,7 +28,7 @@ const createbike = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         res.send({
             message: 'bike creation failed',
             success: false,
-            data: error,
+            error: error,
         });
     }
 });
@@ -46,7 +46,7 @@ const getAllBike = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         res.send({
             message: 'Bike retrieval failed',
             success: false,
-            data: error,
+            error: error,
         });
     }
 });
@@ -86,7 +86,7 @@ const updateBike = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         res.send({
             message: 'Bike update failed',
             success: false,
-            data: error.message,
+            error: error.message,
         });
     }
 });
@@ -102,11 +102,10 @@ const deleteBike = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         });
     }
     catch (error) {
-        console.log(error);
         res.send({
-            message: 'Bike delete failed!',
+            message: 'Bike delete failed !',
             success: false,
-            data: error.message,
+            error: error.message,
         });
     }
 });
@@ -127,7 +126,7 @@ const createOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         res.send({
             message: 'Order failed!',
             success: false,
-            data: error.message,
+            error: error.message,
         });
     }
 });
@@ -145,7 +144,7 @@ const totalRevenue = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         res.send({
             message: 'calculation failed!',
             success: false,
-            data: error,
+            error: error.message,
         });
     }
 });
